@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f5f3;
+}
+
+.form-container {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #FF7F00 ;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+/* Select dropdown with custom styles for location */
+.form-group select {
+    background-color: #fff;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23999" d="M2 0L0 2h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px 10px;
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    border-color: #FF7F00 ;
+    box-shadow: 0 0 5px rgba(160, 82, 45, 0.5);
+}
+
+/* Form actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-actions button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.form-actions button[type="submit"] {
+    background-color: #FF7F00 ;
+    color: #fff;
+}
+
+.form-actions button[type="button"] {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.form-actions button:hover {
+    opacity: 0.9;
+}
+
+/* Styling for form fields */
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group input[type="tel"] ,
+.form-group input[type="email"]{
+    width: 95%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Location specific styling */
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group select option {
+    font-size: 14px;
+    padding: 8px;
+}
+
+/* Adjusting appearance of options in different regions */
+.form-group select optgroup {
+    font-weight: bold;
+    color: #FF7F00 ;
+}
+
+.form-group select option {
+    background-color: #fff;
+    padding: 10px;
+}
+
+.form-group select option:hover {
+    background-color: #f0f0f0;
+}

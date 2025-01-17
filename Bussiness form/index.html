@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Business Form</h1>
+        <form>
+            <!--Business Name-->
+            <div class="form-group">
+                <label for="name">Business Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Business name">
+            </div>
+
+            <!--Location-->
+            <div class="form-group">
+                <label for="location">Location</label>
+                <select id="location" name="location" required>
+                    <option value="">Select Location</option>
+                    <optgroup label="United States">
+                        <option value="Jersey City, New Jersey, United States">Jersey City, New Jersey, United States</option>
+                        <option value="Los Angeles, California, United States">Los Angeles, California, United States</option>
+                        <option value="Houston, Texas, United States">Houston, Texas, United States</option>
+                        <option value="New York City, New York, United States">New York City, New York, United States</option>
+                    </optgroup>
+                    <optgroup label="Canada">
+                        <option value="Toronto, Ontario, Canada">Toronto, Ontario, Canada</option>
+                        <option value="Montreal, Quebec, Canada">Montreal, Quebec, Canada</option>
+                        <option value="Vancouver, British Columbia, Canada">Vancouver, British Columbia, Canada</option>
+                    </optgroup>
+                    <optgroup label="India">
+                        <option value="New Delhi, Delhi, India">New Delhi, Delhi, India</option>
+                        <option value="Mumbai, Maharashtra, India">Mumbai, Maharashtra, India</option>
+                        <option value="Bangalore, Karnataka, India">Bangalore, Karnataka, India</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+
+            <!--Contact-->
+            <div class="form-group">
+                <label for="contact">Contact</label>
+                <input type="tel" id="contact" name="contact" placeholder="Contact Number" required>
+            </div>
+
+            <!--Logo-->
+            <div class="form-group">
+                <label for="business-logo">Business Logo</label>
+                <input type="file" id="business-logo" name="business-logo">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+                <button type="button" onclick="document.querySelector('form').reset();">Clear form</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

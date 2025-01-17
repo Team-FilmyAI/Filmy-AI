@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist and Non-Artist Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="form-container">
+        <h1>Profile Form</h1>
+
+        <!-- Tabs -->
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('artist-form')">Artist</button>
+                <button class="tab" onclick="showTab('non-artist-form')">Non-Artist</button>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content active" id="artist-form">
+            <form>
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" placeholder="First Name" required>
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Last Name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+
+                <!--Contact-->
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="tel" id="contact" name="contact" placeholder="Contact Number" required>
+                </div>
+
+                <!-- Occupation -->
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <input type="text" id="occupation" name="occupation" placeholder="Your occupation" required>
+                </div>
+
+                <!-- Physical Information (Hidden by default) -->
+                <div class="form-group" id="physical-info" style="display: none;">
+                    <label for="height">Height</label>
+                    <input type="text" id="height" name="height" placeholder="Height in cm" required>
+
+                    <label for="weight">Weight</label>
+                    <input type="text" id="weight" name="weight" placeholder="Weight in kg" required>
+
+                    <label for="eye-color">Eye Color</label>
+                    <input type="text" id="eye-color" name="eye-color" placeholder="Eye Color" required>
+
+                    <label for="hair-color">Hair Color</label>
+                    <input type="text" id="hair-color" name="hair-color" placeholder="Hair Color" required>
+
+                    <label for="age-range">Age Range</label>
+                    <select id="age-range" name="age-range" required>
+                    <option value="">Select Age Range</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36-45">36-45</option>
+                    <option value="46-55">46-55</option>
+                    <option value="56+">56+</option>
+                    </select>
+
+                    <label for="ethnicity">Ethnicity</label>
+                    <select id="ethnicity" name="ethnicity" required>
+                    <option value="">Select Ethnicity</option>
+                    <option value="Asian">Asian</option>
+                    <option value="Black or African American">Black or African American</option>
+                    <option value="Hispanic or Latino">Hispanic or Latino</option>
+                    <option value="White or Caucasian">White or Caucasian</option>
+                    <option value="Native American or Alaska Native">Native American or Alaska Native</option>
+                    <option value="Native Hawaiian or Pacific Islander">Native Hawaiian or Pacific Islander</option>
+                    <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <select id="location" name="location" required>
+                        <option value="">Select Location</option>
+                        <optgroup label="United States">
+                            <option value="Jersey City, New Jersey, United States">Jersey City, New Jersey, United States</option>
+                            <option value="Los Angeles, California, United States">Los Angeles, California, United States</option>
+                            <option value="Houston, Texas, United States">Houston, Texas, United States</option>
+                            <option value="New York City, New York, United States">New York City, New York, United States</option>
+                        </optgroup>
+                        <optgroup label="Canada">
+                            <option value="Toronto, Ontario, Canada">Toronto, Ontario, Canada</option>
+                            <option value="Montreal, Quebec, Canada">Montreal, Quebec, Canada</option>
+                            <option value="Vancouver, British Columbia, Canada">Vancouver, British Columbia, Canada</option>
+                        </optgroup>
+                        <optgroup label="India">
+                            <option value="New Delhi, Delhi, India">New Delhi, Delhi, India</option>
+                            <option value="Mumbai, Maharashtra, India">Mumbai, Maharashtra, India</option>
+                            <option value="Bangalore, Karnataka, India">Bangalore, Karnataka, India</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Profile Photo -->
+                <div class="form-group">
+                    <label for="profile-photo">Profile Photo</label>
+                    <input type="file" id="profile-photo" name="profile-photo" accept="image/*" required>
+                </div>
+
+                <!-- Portfolio -->
+                <div class="form-group">
+                    <label for="portfolio">Portfolio</label>
+                    <input type="url" id="portfolio" name="portfolio" placeholder="Portfolio link" required>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit">Submit</button>
+                    <button type="button" onclick="document.querySelector('#artist-form form').reset();">Clear form</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="tab-content" id="non-artist-form">
+            <form>
+                <!-- First Name -->
+                <div class="form-group">
+                    <label for="non-fname">First Name</label>
+                    <input type="text" id="non-fname" name="fname" placeholder="First Name" required>
+                </div>
+
+                <!-- Last Name -->
+                <div class="form-group">
+                    <label for="non-lname">Last Name</label>
+                    <input type="text" id="non-lname" name="lname" placeholder="Last Name" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="non-email">Email</label>
+                    <input type="email" id="non-email" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="tel" id="contact" name="contact" placeholder="Contact Number" required>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <select id="location" name="location" required>
+                        <option value="">Select Location</option>
+                        <optgroup label="United States">
+                            <option value="Jersey City, New Jersey, United States">Jersey City, New Jersey, United States</option>
+                            <option value="Los Angeles, California, United States">Los Angeles, California, United States</option>
+                            <option value="Houston, Texas, United States">Houston, Texas, United States</option>
+                            <option value="New York City, New York, United States">New York City, New York, United States</option>
+                        </optgroup>
+                        <optgroup label="Canada">
+                            <option value="Toronto, Ontario, Canada">Toronto, Ontario, Canada</option>
+                            <option value="Montreal, Quebec, Canada">Montreal, Quebec, Canada</option>
+                            <option value="Vancouver, British Columbia, Canada">Vancouver, British Columbia, Canada</option>
+                        </optgroup>
+                        <optgroup label="India">
+                            <option value="New Delhi, Delhi, India">New Delhi, Delhi, India</option>
+                            <option value="Mumbai, Maharashtra, India">Mumbai, Maharashtra, India</option>
+                            <option value="Bangalore, Karnataka, India">Bangalore, Karnataka, India</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Occupation -->
+                <div class="form-group">
+                    <label for="occupation">Occupation</label>
+                    <input type="text" id="occupation" name="occupation" placeholder="Your occupation" required>
+                </div>
+
+                <!-- Profile Photo -->
+                <div class="form-group">
+                    <label for="profile-photo">Profile Photo</label>
+                    <input type="file" id="profile-photo" name="profile-photo" accept="image/*" required>
+                </div>
+
+                <!-- Portfolio -->
+                <div class="form-group">
+                    <label for="portfolio">Portfolio</label>
+                    <input type="url" id="portfolio" name="portfolio" placeholder="Portfolio link" required>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit">Submit</button>
+                    <button type="button" onclick="document.querySelector('#non-artist-form form').reset();">Clear form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show the selected tab content and mark tab as active
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Event listener for the Occupation field to show Physical Information if 'Actor' is typed in the Artist form
+        document.getElementById('occupation').addEventListener('input', function() {
+            var occupationValue = this.value.trim().toLowerCase();
+            var physicalInfo = document.getElementById('physical-info');
+            if (occupationValue === "actor") {
+                physicalInfo.style.display = "block";  // Show the Physical Information section
+            } else {
+                physicalInfo.style.display = "none";   // Hide the Physical Information section
+            }
+        });
+    </script>
+</body>
+</html>
