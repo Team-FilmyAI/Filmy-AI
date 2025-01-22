@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/registration
+    username: postgres
+    
+  mail:
+   host: smtp.gmail.com
+   port: 587
+   username: #--Company email address--
+   password: #--Genrated access password--
+   protocol: smtp
+   properties:
+     mail:
+       smtp:
+         auth: true
+         starttls:
+           enable: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.filmyai: DEBUG
+    org.springframework.mail: DEBUG
+    
+    
+    
+
+

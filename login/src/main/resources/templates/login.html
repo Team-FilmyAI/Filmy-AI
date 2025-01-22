@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+	<div class="login-container">
+		<div class="login-left"></div>
+		<div class="login-right">
+			<div th:if="${param.error}" class="error-message"
+				style="color: red; text-align: center;">
+				<p>Invalid username or password.</p>
+			</div>
+			<h2 class="login-title">Login</h2>
+			<form class="login-form" action="/login" method="post">
+				<input type="text" name="username"
+					placeholder="Email address or Username" class="input-field"
+					required> <input type="password" name="password"
+					placeholder="Password" class="input-field" required>
+
+				<div class="forgot-password">
+					<a href="/forgot">Forgot Password?</a>
+				</div>
+
+
+				<button class="login-button" type="submit">Log in</button>
+				<p class="signup-link">
+					Don't have an account? <a href="/signup">Sign Up</a>
+				</p>
+				<p class="or">Or</p>
+				<div class="social-icons">
+					<i class="fab fa-google"></i> <i class="fab fa-facebook-f"></i> <i
+						class="fab fa-instagram"></i>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>
