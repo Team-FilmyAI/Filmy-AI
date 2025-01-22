@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration Form</title>
+  <title>Sign Up</title>
   <link rel="stylesheet" href="/css/signup.css">
   <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -15,11 +15,11 @@
     </div>
     <div class="right-section">
       <div class="form-container">
-        <h1>Registration</h1>
+        <h1>Sign up</h1>
         <div class="toggle">
           <label>
             <input type="radio" name="type" value="user" checked onchange="showForm(this.value)">
-            <span>User</span>
+            <span>Individual</span>
           </label>
           <label>
             <input type="radio" name="type" value="business" onchange="showForm(this.value)">
@@ -42,7 +42,7 @@
                 </div>
                 <div class="terms">
                   <input type="checkbox" id="terms">
-                  <label for="terms">I agree to <a href="#">Terms & Conditions</a></label>
+                  <label for="terms">I agree to <a href="./Terms and Conditions.pdf">Terms & Conditions</a></label>
                 </div>
               </div>
               <div id="business-form" style="display: none;">
@@ -57,10 +57,10 @@
                 </div>
                 <div class="terms">
                   <input type="checkbox" id="business-terms">
-                  <label for="business-terms">I agree to <a href="#">Terms & Conditions</a></label>
+                  <label for="business-terms">I agree to <a href="./Terms and Conditions.pdf">Terms & Conditions</a></label>
                 </div>
               </div>              
-          <button type="submit" class="signup-btn">Sign Up</button>
+              <button type="button" class="signup-btn" onclick="showPopup()">Sign Up</button>
         </form>
         <p class="login-prompt">
           Already have an account? <a href="/login">Click here</a> to login
@@ -70,6 +70,12 @@
           <i class="fab fa-google"></i>
           <i class="fab fa-facebook-f"></i>
           <i class="fab fa-instagram"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popup">
+          <p>You're signed up successfully!!!</p>
+          <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
       </div>
     </div>
@@ -87,5 +93,6 @@
       }
     }
   </script>
+  <script src="/js/script.js"></script>
 </body>
 </html>
