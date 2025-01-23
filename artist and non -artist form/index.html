@@ -216,27 +216,40 @@
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
-
+    
             // Remove active class from all tabs
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.classList.remove('active');
             });
-
+    
             // Show the selected tab content and mark tab as active
             document.getElementById(tabId).classList.add('active');
             event.target.classList.add('active');
         }
-
-        // Event listener for the Occupation field to show Physical Information if 'Actor' is typed in the Artist form
+    
+        // Event listener for the Occupation field
         document.getElementById('occupation').addEventListener('input', function() {
-            var occupationValue = this.value.trim().toLowerCase();
+            var occupationValue = this.value.trim().toLowerCase(); // Convert input to lowercase for comparison
             var physicalInfo = document.getElementById('physical-info');
-            if (occupationValue === "actor") {
+    
+            // Check if the input starts with "actor" or "actress"
+            if (
+                occupationValue.startsWith("a") ||
+                occupationValue.startsWith("ac") ||
+                occupationValue.startsWith("act") ||
+                occupationValue.startsWith("acto") ||
+                occupationValue.startsWith("actor") ||
+                occupationValue.startsWith("actress")
+            ) {
                 physicalInfo.style.display = "block";  // Show the Physical Information section
             } else {
                 physicalInfo.style.display = "none";   // Hide the Physical Information section
             }
         });
     </script>
+    
+    
+    
+    
 </body>
 </html>
