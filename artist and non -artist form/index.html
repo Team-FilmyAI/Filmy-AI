@@ -56,10 +56,18 @@
                 <!-- Physical Information (Hidden by default) -->
                 <div class="form-group" id="physical-info" style="display: none;">
                     <label for="height">Height</label>
-                    <input type="text" id="height" name="height" placeholder="Height in cm" required>
+                    <div class="toggle-container">
+                        <input type="number" id="height" placeholder="Height in cm">
+                        <button class="toggle-btn active" data-unit="cm">CM</button>
+                        <button class="toggle-btn" data-unit="inches">Inches</button>
+                      </div>
 
-                    <label for="weight">Weight</label>
-                    <input type="text" id="weight" name="weight" placeholder="Weight in kg" required>
+                      <label for="weight">Weight</label>
+                      <div class="toggle-container">
+                        <input type="number" id="weight" placeholder="Weight in kg">
+                        <button class="toggle-btn active" data-unit="kg">KG</button>
+                        <button class="toggle-btn" data-unit="lbs">LBS</button>
+                      </div>
 
                     <label for="eye-color">Eye Color</label>
                     <input type="text" id="eye-color" name="eye-color" placeholder="Eye Color" required>
@@ -246,6 +254,39 @@
                 physicalInfo.style.display = "none";   // Hide the Physical Information section
             }
         });
+        // Add toggle functionality for Height
+    const heightInput = document.getElementById('height');
+    const heightButtons = document.querySelectorAll('[data-unit="cm"], [data-unit="inches"]');
+
+    heightButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        heightButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        if (button.getAttribute('data-unit') === 'inches') {
+          heightInput.placeholder = "Height in inches";
+        } else {
+          heightInput.placeholder = "Height in cm";
+        }
+      });
+    });
+
+    // Add toggle functionality for Weight
+    const weightInput = document.getElementById('weight');
+    const weightButtons = document.querySelectorAll('[data-unit="kg"], [data-unit="lbs"]');
+
+    weightButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        weightButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        if (button.getAttribute('data-unit') === 'lbs') {
+          weightInput.placeholder = "Weight in lbs";
+        } else {
+          weightInput.placeholder = "Weight in kg";
+        }
+      });
+    });
     </script>
     
     

@@ -256,3 +256,25 @@ input[type="url"] {
     margin-bottom: 15px;  /* Adds space between Age Range and Ethnicity */
 }
 
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .toggle-btn {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .toggle-btn.active {
+    background-color: #FF7F00;
+    color: white;
+  }
+  input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
