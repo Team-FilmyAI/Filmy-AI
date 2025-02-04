@@ -57,7 +57,8 @@ public class SecurityConfig {
             .formLogin(httpForm ->{
                 httpForm
                 .loginPage("/login")
-                .defaultSuccessUrl("/index", true)
+                // .defaultSuccessUrl("/profile", true)
+                .defaultSuccessUrl("/profile/profileDetails", true)  // Change this to use a custom redirect endpoint
                 .failureUrl("/login?error=true")
                 .permitAll();
 
@@ -66,7 +67,7 @@ public class SecurityConfig {
     
             
             .authorizeHttpRequests(registry ->{
-                registry.requestMatchers("/signup", "/forgot", "/css/**", "/images/**").permitAll();
+                registry.requestMatchers("/signup","/profile","/success", "/forgot", "/css/**", "/images/**", "/pdfs/**", "/js/**").permitAll();
                 registry.anyRequest().authenticated();
             })
             .build();

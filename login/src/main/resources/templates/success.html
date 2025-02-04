@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile Created</title>
+</head>
+<body>
+
+    <h1 th:text="'Welcome, ' + ${profile.firstName} + ' ' + ${profile.lastName} + '!'"></h1>
+    
+    <div th:if="${profile != null}">
+        
+        <h2>Profile Details:</h2>
+
+        <div>
+            <img th:src="@{${profile.profilePicturePath}}" alt="Profile Picture">
+        </div>
+        
+
+        <p><strong>First Name:</strong> <span th:text="${profile.firstName}"></span></p>
+        <p><strong>Last Name:</strong> <span th:text="${profile.lastName}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${profile.email}"></span></p>
+        <p><strong>Contact:</strong> <span th:text="${profile.contact}"></span></p>
+        <p><strong>Occupation:</strong> <span th:text="${profile.occupation}"></span></p>
+        <p><strong>Location:</strong> <span th:text="${profile.location}"></span></p>
+        <p><strong>Portfolio:</strong> 
+            <a th:href="${profile.portfolioLink}" th:text="${profile.portfolioLink}" target="_blank"></a>
+        </p>
+
+        <div th:if="${actor != null}">
+
+            <p><strong>Height:</strong> <span th:text="${actor.heightValue}"></span> <span th:text="${actor.heightUnit}"></span></p>
+            <p><strong>Weight:</strong> <span th:text="${actor.weightValue}"></span> <span th:text="${actor.weightUnit}"></span></p>
+            <p><strong>Eye Color:</strong> <span th:text="${actor.eyeColor}"></span></p>
+            <p><strong>Hair Color:</strong> <span th:text="${actor.hairColor}"></span></p>
+            <p><strong>Age Range:</strong> <span th:text="${actor.ageRange}"></span></p>
+            <p><strong>Ethnicity:</strong> <span th:text="${actor.ethnicity}"></span></p>
+
+        
+        </div>
+
+    </div>
+
+
+    <div>
+        <p><a href="/login" class="btn">Logout</a></p>
+    </div>
+</body>
+</html>

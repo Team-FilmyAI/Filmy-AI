@@ -24,10 +24,10 @@
         <div class="tab-content active" id="artist-form">
 
             <!-- Display error message if it exists -->
-            <div th:if="${errorMessage}" style="color:red;">
-                <p th:text="${errorMessage}"></p>
+            <div>
+                <p th:if="${error}" th:text="${error}" style="color: red;"></p>
             </div>
-
+            
 
 
             <form id="artist-form" action="/profile/create" method="POST" enctype="multipart/form-data">
@@ -65,20 +65,20 @@
                 <div class="form-group" id="physical-info" style="display: none;">
                     <label for="height">Height</label>
                     <div class="toggle-container">
-                        <input type="number" id="height" placeholder="Height in cm">
+                        <input type="number" id="height" placeholder="Height in cm" name="height">
                         <button class="toggle-btn active" data-unit="cm">CM</button>
                         <button class="toggle-btn" data-unit="inches">Inches</button>
                       </div>
 
                       <label for="weight">Weight</label>
                       <div class="toggle-container">
-                        <input type="number" id="weight" placeholder="Weight in kg">
+                        <input type="number" id="weight" placeholder="Weight in kg" name="weight">
                         <button class="toggle-btn active" data-unit="kg">KG</button>
                         <button class="toggle-btn" data-unit="lbs">LBS</button>
                       </div>
 
-                    <input type="hidden" id="hidden-height-unit" name="height_unit">
-                    <input type="hidden" id="hidden-weight-unit" name="weight_unit">
+                    <input type="hidden" id="height-unit" name="height-unit" value="cm">
+                    <input type="hidden" id="weight-unit" name="weight-unit" value="kg">
                     
                     
                     <label for="eye-color">Eye Color</label>
@@ -270,6 +270,9 @@
     const heightInput = document.getElementById('height');
     const heightButtons = document.querySelectorAll('[data-unit="cm"], [data-unit="inches"]');
 
+    const heightUnitInput = document.getElementById('height-unit');
+    const weightUnitInput = document.getElementById('weight-unit');
+
     heightButtons.forEach(button => {
       button.addEventListener('click', () => {
         heightButtons.forEach(btn => btn.classList.remove('active'));
@@ -277,8 +280,10 @@
 
         if (button.getAttribute('data-unit') === 'inches') {
           heightInput.placeholder = "Height in inches";
+          heightUnitInput.value = "inches";
         } else {
           heightInput.placeholder = "Height in cm";
+          heightUnitInput.value = "cm";
         }
       });
     });
@@ -294,27 +299,20 @@
 
         if (button.getAttribute('data-unit') === 'lbs') {
           weightInput.placeholder = "Weight in lbs";
+          weightUnitInput.value = "lbs";
         } else {
           weightInput.placeholder = "Weight in kg";
+          weightUnitInput.value = "kg";
         }
       });
     });
-
-
-    document.getElementById('artist-form').addEventListener('submit', function(e) {
-        // Get the selected height unit
-        const heightUnit = document.querySelector('[data-unit="cm"].active, [data-unit="inches"].active')?.getAttribute('data-unit');
-        // Get the selected weight unit
-        const weightUnit = document.querySelector('[data-unit="kg"].active, [data-unit="lbs"].active')?.getAttribute('data-unit');
-        
-        // Set the hidden input values
-        if (heightUnit && weightUnit) {
-            document.getElementById('hidden-height-unit').value = heightUnit;
-            document.getElementById('hidden-weight-unit').value = weightUnit;
-        }
-    });
-
     
+
+    document.getElementById('artist-form').addEventListener('submit', function(event) {
+        // You can log the final values or change the hidden values one last time
+        console.log("Height unit before submission: " + heightUnitInput.value);
+        console.log("Weight unit before submission: " + weightUnitInput.value);
+    });
     </script>
     
     
