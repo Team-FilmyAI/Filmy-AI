@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArtistProfileRepository extends JpaRepository<ArtistProfile, Long> {
 
-    // Find profile by user ID
-    ArtistProfile findByUserId(Long userId);
+    // Find artist profile by user
+    ArtistProfile findByMyAppUser(MyAppUser myAppUser);
 }

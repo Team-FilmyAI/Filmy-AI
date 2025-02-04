@@ -30,5 +30,25 @@ public class ContentController {
         return "forgot";
     }
 
+    @GetMapping("/profile")
+    public String profileForm() {
+        return "profile";  // This will return profile.html from src/main/resources/templates
+    }
+
+    @GetMapping("/artist-profile")
+    public String viewArtistProfile() {
+        return "profile";  // This will return profile.html from src/main/resources/templates
+    }
+
+
+    @GetMapping("/non-artist-profile")
+    public String viewNonArtistProfile() {
+        return "profile";  // This will return profile.html from src/main/resources/templates
+    }
+
+    @GetMapping("/success")
+    public String viewSuccessPage() {
+        return "success";  // This will return success.html from src/main/resources/templates
+    }
 }
 

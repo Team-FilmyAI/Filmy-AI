@@ -1,7 +1,5 @@
 package com.filmyai.login.Model;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,21 +20,18 @@ public class MyAppUserService implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<MyAppUser> user = repository.findByEmail(email);
+        MyAppUser user = repository.findByEmail(email);
 
-        if(user.isPresent()){
-
-            var userObj = user.get();
-            return User.builder()
-                    .username(userObj.getEmail())
-                    .password(userObj.getPassword_hash())
-                    .build();
+        // Check if user is null
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with email: " + email);
         }
-        else{
 
-            throw new UsernameNotFoundException("User with email " + email + " not found");
-
-        }
+        // Build the UserDetails object if user exists
+        return User.builder()
+                .username(user.getEmail())
+                .password(user.getPassword_hash())
+                .build();
 
         
     }

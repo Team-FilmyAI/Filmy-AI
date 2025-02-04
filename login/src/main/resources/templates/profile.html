@@ -30,7 +30,7 @@
             
 
 
-            <form id="artist-form" action="/profile/create" method="POST" enctype="multipart/form-data">
+            <form id="artist-form" action="/artist-profile/create" method="POST" enctype="multipart/form-data">
                 <!-- First Name -->
                 <div class="form-group">
                     <label for="fname">First Name</label>
@@ -155,34 +155,41 @@
         </div>
 
         <div class="tab-content" id="non-artist-form">
-            <form>
+
+            <!-- Display error message if it exists -->
+
+            <div>
+                <p th:if="${error}" th:text="${error}" style="color: red;"></p>
+            </div>
+
+            <form id="non-artist-form" action="/non-artist-profile/create" method="POST" enctype="multipart/form-data">
                 <!-- First Name -->
                 <div class="form-group">
                     <label for="non-fname">First Name</label>
-                    <input type="text" id="non-fname" name="fname" placeholder="First Name" required>
+                    <input type="text" id="non-fname" name="non-fname" placeholder="First Name" required>
                 </div>
 
                 <!-- Last Name -->
                 <div class="form-group">
                     <label for="non-lname">Last Name</label>
-                    <input type="text" id="non-lname" name="lname" placeholder="Last Name" required>
+                    <input type="text" id="non-lname" name="non-lname" placeholder="Last Name" required>
                 </div>
 
                 <!-- Email -->
                 <div class="form-group">
                     <label for="non-email">Email</label>
-                    <input type="email" id="non-email" name="email" placeholder="Email" required>
+                    <input type="email" id="non-email" name="non-email" placeholder="Email" required>
                 </div>
 
                 <div class="form-group">
                     <label for="contact">Contact</label>
-                    <input type="tel" id="contact" name="contact" placeholder="Contact Number" required>
+                    <input type="tel" id="contact" name="non-contact" placeholder="Contact Number" required>
                 </div>
 
                 <!-- Location -->
                 <div class="form-group">
                     <label for="location">Location</label>
-                    <select id="location" name="location" required>
+                    <select id="location" name="non-location" required>
                         <option value="">Select Location</option>
                         <optgroup label="United States">
                             <option value="Jersey City, New Jersey, United States">Jersey City, New Jersey, United States</option>
@@ -206,19 +213,19 @@
                 <!-- Occupation -->
                 <div class="form-group">
                     <label for="occupation">Occupation</label>
-                    <input type="text" id="occupation" name="occupation" placeholder="Your occupation" required>
+                    <input type="text" id="occupation" name="non-occupation" placeholder="Your occupation" required>
                 </div>
 
                 <!-- Profile Photo -->
                 <div class="form-group">
                     <label for="profile-photo">Profile Photo</label>
-                    <input type="file" id="profile-photo" name="profile-photo" accept="image/*" required>
+                    <input type="file" id="profile-photo" name="non-profile-photo" accept="image/*" required>
                 </div>
 
                 <!-- Portfolio -->
                 <div class="form-group">
                     <label for="portfolio">Portfolio</label>
-                    <input type="url" id="portfolio" name="portfolio" placeholder="Portfolio link" required>
+                    <input type="url" id="portfolio" name="non-portfolio" placeholder="Portfolio link" required>
                 </div>
 
                 <!-- Form Actions -->

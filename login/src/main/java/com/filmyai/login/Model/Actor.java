@@ -20,7 +20,7 @@ public class Actor {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "profile_id")
+    @JoinColumn(name = "artist_profile_id")
     private ArtistProfile artistProfile;
 
     private BigDecimal heightValue;

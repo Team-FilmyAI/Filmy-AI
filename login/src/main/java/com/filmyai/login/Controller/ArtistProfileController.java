@@ -14,6 +14,7 @@ import com.filmyai.login.Model.ArtistProfileService;
 import com.filmyai.login.Model.MyAppUser;
 import com.filmyai.login.Model.MyAppUserRepository;
 
+
 import org.springframework.ui.Model;
 
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-@RequestMapping("/profile")
+@RequestMapping("/artist-profile")
 public class ArtistProfileController {
 
     @Autowired
@@ -41,15 +42,19 @@ public class ArtistProfileController {
 
 
     // Method to get the logged-in user's email and fetch user details by email
-    private Long getLoggedInUserId() {
+    private MyAppUser getLoggedInUser() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String email = userDetails.getUsername();  // Assuming email is used as username
 
         // Fetch user using the email (Optional)
-        MyAppUser user = myAppUserRepository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        MyAppUser user = myAppUserRepository.findByEmail(email);
 
-        return user.getUser_id();  // Return the userId
+        if(user==null){
+            throw new RuntimeException("User not found");
+        }
+
+        
+        return user;  // Return the userId
     }
 
 
@@ -58,18 +63,17 @@ public class ArtistProfileController {
     @GetMapping("/profileDetails")
     public String profileDetails(Model model) {
 
-        Long userId = getLoggedInUserId();
-        ArtistProfile profile = artistProfileRepository.findByUserId(userId);
+        ArtistProfile artistProfile = artistProfileRepository.findByMyAppUser(getLoggedInUser());
         
-        if (profile == null) {
-            return "redirect:/profile";
+        if (artistProfile == null) {
+            return "redirect:/artist-profile";
         }
 
         else{
-            Actor actor =  actorRepository.findByArtistProfile_ProfileId(profile.getProfileId());    
+            Actor actor =  actorRepository.findByArtistProfile(artistProfile);    
     
     
-            model.addAttribute("profile", profile);
+            model.addAttribute("profile", artistProfile);
             model.addAttribute("actor", actor);
             return "success";
                     
@@ -100,12 +104,22 @@ public class ArtistProfileController {
 
                                                     
         try {
-            Long userId = getLoggedInUserId();
+            
+            MyAppUser user = getLoggedInUser();
 
             String profilePicturePath = artistProfileService.saveProfilePicture(profilePicture);
 
-            ArtistProfile artistProfile = new ArtistProfile(userId, firstName, lastName, email, contact,
-                                                            occupation, location, profilePicturePath, portfolioLink);
+            ArtistProfile artistProfile = new ArtistProfile();
+            artistProfile.setMyAppUser(user);
+            artistProfile.setFirstName(firstName);
+            artistProfile.setLastName(lastName);
+            artistProfile.setEmail(email);
+            artistProfile.setContact(contact);
+            artistProfile.setOccupation(occupation);
+            artistProfile.setLocation(location);
+            artistProfile.setProfilePicturePath(profilePicturePath);
+            artistProfile.setPortfolioLink(portfolioLink);
+
             artistProfileService.saveArtistProfile(artistProfile);
             
         // If occupation is 'actor' or 'actress', create an entry in the Actor table
@@ -126,13 +140,13 @@ public class ArtistProfileController {
             actorRepository.save(actor);
         }
 
-            return "redirect:/profile/profileDetails"; // Redirect to the success page
+            return "redirect:/artist-profile/profileDetails"; // Redirect to the success page
 
         } catch (Exception e) {
             
             System.out.println(e.getMessage());
             redirectAttributes.addFlashAttribute("error", "Failed to create profile. Please try again.");
-            return "redirect:/profile"; // Redirect back to the profile page with an error
+            return "redirect:/artist-profile"; // Redirect back to the profile page with an error
         }
 
     }

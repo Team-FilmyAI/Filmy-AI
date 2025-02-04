@@ -8,11 +8,12 @@ public class ArtistProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "profile_id")
-    private Long profileId;
-
-    @Column(name = "userId", nullable = false)
-    private Long userId; // Foreign key linking to the users table
+    @Column(name = "artist_profile_id")
+    private Long artistprofileId;
+    
+    @OneToOne
+    @JoinColumn(name = "userId")
+    private MyAppUser myAppUser;
 
     @Column(name = "firstName", nullable = false)
     private String firstName;
@@ -38,39 +39,21 @@ public class ArtistProfile {
     @Column(name = "portfolio_link")
     private String portfolioLink;
 
-    public ArtistProfile() {
+
+    public Long getArtistprofileId() {
+        return artistprofileId;
     }
 
-    // Constructor to initialize all fields except profileId
-    public ArtistProfile(Long userId, String firstName, String lastName, String email, String contact, 
-                         String occupation, String location, String profilePicturePath, String portfolioLink) {
-        this.userId = userId; // Assigning userId
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.contact = contact;
-        this.occupation = occupation;
-        this.location = location;
-        this.profilePicturePath = profilePicturePath;
-        this.portfolioLink = portfolioLink;
+    public void setArtistprofileId(Long artistprofileId) {
+        this.artistprofileId = artistprofileId;
     }
 
-    // Getters and Setters
-
-    public Long getProfileId() {
-        return profileId;
+    public MyAppUser getMyAppUser() {
+        return myAppUser;
     }
 
-    public void setProfileId(Long profileId) {
-        this.profileId = profileId;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setMyAppUser(MyAppUser myAppUser) {
+        this.myAppUser = myAppUser;
     }
 
     public String getFirstName() {

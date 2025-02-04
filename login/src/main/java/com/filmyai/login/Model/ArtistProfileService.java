@@ -15,7 +15,7 @@ public class ArtistProfileService {
     @Autowired
     private ArtistProfileRepository artistProfileRepository;
 
-    private static final String PROFILE_PICTURES_DIR = "src/main/resources/static/profile_pictures/";
+    private static final String PROFILE_PICTURES_DIR = "src/main/resources/static/profile_pictures/artist/";
 
     // Save the artist profile to the database
     public void saveArtistProfile(ArtistProfile artistProfile) {
@@ -39,7 +39,7 @@ public class ArtistProfileService {
         Path filePath = directoryPath.resolve(fileName);
         Files.write(filePath, profilePicture.getBytes());
 
-        return "/profile_pictures/" + fileName;
+        return "/profile_pictures/artist/" + fileName;
     }
 
 

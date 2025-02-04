@@ -1,6 +1,5 @@
 package com.filmyai.login.Security;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -24,9 +23,10 @@ public class SecurityConfig {
 
     // It setups configuration for authentication, password encoding, and access rules
 
-
-    @Autowired
     private final MyAppUserService appUserService;
+
+    
+    private final CustomAuthenticationSuccessHandler successHandler;
 
     @Bean
     public UserDetailsService userDetailsService(){
@@ -48,7 +48,6 @@ public class SecurityConfig {
     }
 
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
 
@@ -57,8 +56,7 @@ public class SecurityConfig {
             .formLogin(httpForm ->{
                 httpForm
                 .loginPage("/login")
-                // .defaultSuccessUrl("/profile", true)
-                .defaultSuccessUrl("/profile/profileDetails", true)  // Change this to use a custom redirect endpoint
+                .successHandler(successHandler)  // Use the custom success handler
                 .failureUrl("/login?error=true")
                 .permitAll();
 
