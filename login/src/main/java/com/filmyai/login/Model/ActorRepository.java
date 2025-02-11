@@ -5,9 +5,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Long> {
-    
-    // Method to find an actor by the profile ID
-    // Actor findByArtistProfile_ProfileId(Long profileId);
+
 
     // Find actor by ArtistProfile
     Actor findByArtistProfile(ArtistProfile artistProfile);

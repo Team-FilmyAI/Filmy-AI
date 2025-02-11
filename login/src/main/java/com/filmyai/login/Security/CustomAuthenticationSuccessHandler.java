@@ -44,7 +44,10 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             response.sendRedirect("/artist-profile/profileDetails");
             return;
         }
-
+        if (nonArtistProfileRepository.findByMyAppUser(user) != null) {
+            response.sendRedirect("/non-artist-profile/profileDetails");
+            return;
+        }
     }
 
     response.sendRedirect("/profile"); // Default fallback
