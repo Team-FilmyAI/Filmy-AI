@@ -18,7 +18,7 @@ To provide an integrated platform that enables smooth collaboration across all f
 * **Networking Opportunities:** Join community forums, attend virtual events, and engage with professionals from both the creative and technical sides of the industry.
 
 ## Code of Conduct
-Please follow our [Code of Conduct](https://github.com/Team-FilmyAI/Filmy-AI/blob/main/wiki_images/Team%20Agreement.docx) to ensure a respectful and collaborative environment for everyone.
+Please follow our [Code of Conduct](https://github.com/Team-FilmyAI/Filmy-AI/blob/main/wiki_images/Code%20of%20Conduct.docx) to ensure a respectful and collaborative environment for everyone.
 
 ## Support
 If you encounter any issues or have questions, feel free reach out via email at **business@filmy-ai.com** .
