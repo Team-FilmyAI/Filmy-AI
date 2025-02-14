@@ -1,4 +1,4 @@
-# FilmyAI 🎬🌐
+# FilmyAI 🎬
 
 ## About FilmyAI
 The global film industry, though over 120 years old, still faces significant challenges related to fragmentation and lack of organization. FilmyAI is a platform designed to address these issues by providing a space for film professionals, technicians, and service providers to collaborate globally. 🌐🤝
