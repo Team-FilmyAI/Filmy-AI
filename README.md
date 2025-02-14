@@ -1,4 +1,4 @@
-# Filmy Platform: Revolutionizing the Global Film Industry
+# FilmyAI Platform: Revolutionizing the Global Film Industry
 
 ## About FilmyAI
 The global film industry, though over 120 years old, still faces significant challenges related to fragmentation and lack of organization. FilmyAI is a platform designed to change this by providing a space for film professionals, technicians, and service providers to collaborate globally.
