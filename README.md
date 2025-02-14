@@ -16,3 +16,9 @@ To provide an integrated platform that enables smooth collaboration across all f
 * **Seamless Communication:** Built-in communication features that allow team members to collaborate in real-time on projects.
 * **Resource Sharing:** Share and access resources such as technical guides, production templates, and best practices to improve the production process.
 * **Networking Opportunities:** Join community forums, attend virtual events, and engage with professionals from both the creative and technical sides of the industry.
+
+## Code of Conduct
+Please follow our **Code of Conduct** to ensure a respectful and collaborative environment for everyone.
+
+## Support
+If you encounter any issues or have questions, feel free reach out via email at **business@filmy-ai.com** .
