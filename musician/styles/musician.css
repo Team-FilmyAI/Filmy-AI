@@ -34,6 +34,13 @@ body {
     font-weight: 600 !important;
 }
   
+.profile-img {
+  border-radius: 50%;
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Adjust the size as needed */
+  object-fit: cover; /* Ensures the image doesn't get stretched */
+}
+
 .sc-prof-bdm img{
     width: 100px;
 }
