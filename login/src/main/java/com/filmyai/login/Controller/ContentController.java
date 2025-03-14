@@ -20,10 +20,10 @@ public class ContentController {
         return "signup";
     }
 
-    @GetMapping("/index")
-    public String index(){
-        return "index";
-    }
+    // @GetMapping("/index")
+    // public String index(){
+    //     return "index";
+    // }
 
     @GetMapping("/forgot")
     public String forgot(){
@@ -40,7 +40,6 @@ public class ContentController {
         return "profile";  // This will return profile.html from src/main/resources/templates
     }
 
-
     @GetMapping("/non-artist-profile")
     public String viewNonArtistProfile() {
         return "profile";  // This will return profile.html from src/main/resources/templates
@@ -49,6 +48,11 @@ public class ContentController {
     @GetMapping("/success")
     public String viewSuccessPage() {
         return "success";  // This will return success.html from src/main/resources/templates
+    }
+
+    @GetMapping("/artist-dashboard")
+    public String viewArtistDashboard() {
+        return "artist";  // This will return artist.html from src/main/resources/templates
     }
 }
 

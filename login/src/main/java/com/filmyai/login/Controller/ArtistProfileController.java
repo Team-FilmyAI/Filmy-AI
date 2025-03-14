@@ -14,7 +14,6 @@ import com.filmyai.login.Model.ArtistProfileService;
 import com.filmyai.login.Model.MyAppUser;
 import com.filmyai.login.Model.MyAppUserRepository;
 
-
 import org.springframework.ui.Model;
 
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -75,7 +74,10 @@ public class ArtistProfileController {
     
             model.addAttribute("profile", artistProfile);
             model.addAttribute("actor", actor);
-            return "success";
+            model.addAttribute("profileVisibility", artistProfile.getProfile_visibility()); // 'profileVisibility' should be the field holding public/private value
+            model.addAttribute("about", artistProfile.getAbout());
+
+            return "artist"; // changed
                     
         }
 
@@ -119,6 +121,10 @@ public class ArtistProfileController {
             artistProfile.setLocation(location);
             artistProfile.setProfilePicturePath(profilePicturePath);
             artistProfile.setPortfolioLink(portfolioLink);
+            artistProfile.setBio("Bio");
+            artistProfile.setProfile_visibility("Public");
+            artistProfile.setAbout("About....");
+
 
             artistProfileService.saveArtistProfile(artistProfile);
             
@@ -140,13 +146,131 @@ public class ArtistProfileController {
             actorRepository.save(actor);
         }
 
-            return "redirect:/artist-profile/profileDetails"; // Redirect to the success page
+            return "redirect:/artist-profile/profileDetails"; // Redirect to the prfile page
 
         } catch (Exception e) {
             
             System.out.println(e.getMessage());
             redirectAttributes.addFlashAttribute("error", "Failed to create profile. Please try again.");
             return "redirect:/artist-profile"; // Redirect back to the profile page with an error
+        }
+
+    }
+
+
+    @PostMapping("/editBasicDetails")
+    @Transactional
+    public String editBasicDetails(@RequestParam(value="fname", required = false) String firstName,
+                                                  @RequestParam(value="lname", required = false) String lastName,
+                                                  @RequestParam(value="email", required = false) String email,
+                                                  @RequestParam(value="location", required = false) String location,
+                                                  @RequestParam(value="profile-photo", required = false) MultipartFile profilePicture,
+                                                  @RequestParam(value="portfolio", required = false) String portfolioLink,
+                                                  @RequestParam(value="bio", required = false) String bio,
+                                                  RedirectAttributes redirectAttributes) {
+
+
+                                                    
+        try {
+            
+            MyAppUser user = getLoggedInUser();
+
+            ArtistProfile artistProfile = artistProfileRepository.findByMyAppUser(user); //fetch existing profile
+
+            // Only update fields that are not null or empty
+            if (firstName != null && !firstName.trim().isEmpty()) {
+                artistProfile.setFirstName(firstName);
+            }
+            if (lastName != null && !lastName.trim().isEmpty()) {
+                artistProfile.setLastName(lastName);
+            }
+            if (email != null && !email.trim().isEmpty()) {
+                artistProfile.setEmail(email);
+            }
+            if (location != null && !location.trim().isEmpty()) {
+                artistProfile.setLocation(location);
+            }
+            if (portfolioLink != null && !portfolioLink.trim().isEmpty()) {
+                artistProfile.setPortfolioLink(portfolioLink);
+            }
+            if (bio != null && !bio.trim().isEmpty()) {
+                artistProfile.setBio(bio);
+            }
+
+            // Handle profile picture update only if a new file is provided
+            if (profilePicture != null && !profilePicture.isEmpty()) {
+                String profilePicturePath = artistProfileService.saveProfilePicture(profilePicture);
+                artistProfile.setProfilePicturePath(profilePicturePath);
+            }
+
+            artistProfileService.saveArtistProfile(artistProfile);
+            
+
+            return "redirect:/artist-profile/profileDetails"; // Redirect to the profile page
+
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "Failed to edit profile. Please try again.");
+            return "redirect:/artist-profile/profileDetails"; // Redirect back to the profile page with an error
+        }
+
+    }
+
+
+    @PostMapping("/update-profile-visibility")
+    public String updateProfileVisibility(@RequestParam("visibility") String visibility,
+        RedirectAttributes redirectAttributes) {
+        try {
+            
+            MyAppUser user = getLoggedInUser();
+    
+            ArtistProfile artistProfile = artistProfileRepository.findByMyAppUser(user); //fetch existing profile
+    
+            artistProfile.setProfile_visibility(visibility);
+
+            artistProfileService.saveArtistProfile(artistProfile);
+            
+            return "redirect:/artist-profile/profileDetails"; // Redirect to the profile page
+
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "Failed to edit profile. Please try again.");
+            return "redirect:/artist-profile/profileDetails"; // Redirect back to the profile page with an error
+        }
+
+    }
+
+
+    @PostMapping("/editAbout")
+    @Transactional
+    public String editAbout(@RequestParam(value="about") String about,
+                                                  RedirectAttributes redirectAttributes) {
+
+
+                                                    
+        try {
+            
+            MyAppUser user = getLoggedInUser();
+
+            ArtistProfile artistProfile = artistProfileRepository.findByMyAppUser(user); //fetch existing profile
+
+            if (about != null && !about.trim().isEmpty()) {
+                artistProfile.setAbout(about);
+            }
+        
+
+            artistProfileService.saveArtistProfile(artistProfile);
+            
+
+            return "redirect:/artist-profile/profileDetails"; // Redirect to the profile page
+
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "Failed to edit profile. Please try again.");
+            return "redirect:/artist-profile/profileDetails"; // Redirect back to the profile page with an error
         }
 
     }

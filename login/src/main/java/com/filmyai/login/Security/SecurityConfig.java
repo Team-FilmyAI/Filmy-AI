@@ -65,7 +65,7 @@ public class SecurityConfig {
     
             
             .authorizeHttpRequests(registry ->{
-                registry.requestMatchers("/signup","/profile","/success", "/forgot", "/css/**", "/images/**", "/pdfs/**", "/js/**").permitAll();
+                registry.requestMatchers("/signup","/profile","/success", "/forgot", "/css/**", "/images/**", "/docs/**", "/js/**").permitAll();
                 registry.anyRequest().authenticated();
             })
             .build();

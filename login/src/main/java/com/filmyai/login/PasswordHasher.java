@@ -8,7 +8,7 @@ public class PasswordHasher {
 
     public static void main(String[] args) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String rawPassword = "smith234";  // the password you want to hash
+        String rawPassword = "emma123";  // the password you want to hash
         String hashedPassword = encoder.encode(rawPassword);
 
         System.out.println("Hashed Password: " + hashedPassword);

@@ -39,6 +39,38 @@ public class ArtistProfile {
     @Column(name = "portfolio_link")
     private String portfolioLink;
 
+    @Column(name = "bio")
+    private String bio;
+
+    @Column(name = "profile_visibility")
+    private String profile_visibility;
+
+    @Column(name = "about", columnDefinition = "TEXT")
+    private String about;
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public String getProfile_visibility() {
+        return profile_visibility;
+    }
+
+    public void setProfile_visibility(String profile_visibility) {
+        this.profile_visibility = profile_visibility;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 
     public Long getArtistprofileId() {
         return artistprofileId;
