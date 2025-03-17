@@ -486,50 +486,24 @@
                                 <div class="accordion-header" id="headingOne">
                                     <div class="modal-header d-flex justify-content-between align-items-center p-3">
                                         <div class="flex-grow-1" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                            <h6 class="modal-title1">
-                                                <b>Availability</b>
-                                            </h6>
+                                            <h2 style="text-align: center;">Non-Artist Slot Booking</h2>
+                                            <div style="text-align: center;">
+                                                <input type="date" id="dateInput">
+                                                <button3 onclick="bookSlot()">Book Slot</button3>
+                                            </div>
                                             <table>
                                                 <thead>
-                                                  <tr>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                  </tr>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
+                                                    </tr>
                                                 </thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td>March 10, 2024</td>
-                                                    <td>Booked</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>April 17, 2024</td>
-                                                    <td>Booked</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td>May 25, 2024</td>
-                                                    <td>Booked</td>
-                                                  </tr>
+                                                <tbody id="slotTable">
                                                 </tbody>
-                                              </table>
-                                        </div>
-                                        <div class="calendar-container">
-                                            <div class="calendar-header">
-                                              <button id="prev-month" class="nav-button1">&lt;</button>
-                                              <h2 id="calendar-title"></h2>
-                                              <button id="next-month" class="nav-button1">&gt;</button>
-                                            </div>
-                                            <div class="calendar-grid" id="calendar-grid">
-                                              <!-- Days of the week -->
-                                              <div class="day-name">Mo</div>
-                                              <div class="day-name">Tu</div>
-                                              <div class="day-name">We</div>
-                                              <div class="day-name">Th</div>
-                                              <div class="day-name">Fr</div>
-                                              <div class="day-name">Sa</div>
-                                              <div class="day-name">Su</div>
-                                            </div>
-                                        </div>
+                                            </table>
                                         <script src="./js/script1.js"></script>
+                                        </div>
                                     </div> 
                                 </div>
                             </div>
