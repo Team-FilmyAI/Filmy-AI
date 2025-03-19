@@ -621,12 +621,20 @@ input[type="date"] {
 
 }
 
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 8px;
   text-align: center;
+  margin-top: 20px;
 }
+
 .status-available {
   color: green;
   font-weight: bold;
@@ -636,20 +644,7 @@ table, th, td {
   font-weight: bold;
 }
 
-button2 {
-  margin: 2px;
-  padding: 6px 20px;
-  font-weight: bold;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
 
-button2:hover {
-  background-color: darkgray;
-}
 
 
 button3 {
@@ -667,4 +662,20 @@ button3 {
 
 button3:hover {
   background-color: #FF9933;
+}
+
+button{
+  margin-top: 30px;
+  padding: 6px 20px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+button:hover{
+  background-color: darkgray;
 }
