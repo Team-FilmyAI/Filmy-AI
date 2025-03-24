@@ -404,20 +404,21 @@ body {
     background-color: #9D9D9D;
     border: none;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: bold;
     color: black;
-    padding: 4px 10px;
-    border-radius: 10px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    
   }
 
   .btn-rpp {
     background-color: #fff;
     border: none;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: bold;
     color: black;
-    padding: 4px 10px;
-    border-radius: 10px;
+    padding: 6px 10px;
+    border-radius: 5px;
   }
 
   .mt-2{
