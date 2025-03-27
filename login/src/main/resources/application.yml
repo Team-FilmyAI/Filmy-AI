@@ -5,6 +5,10 @@ server:
     include-binding-errors: always
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   datasource:
     password: 1234
     url: jdbc:postgresql://localhost:5432/registration

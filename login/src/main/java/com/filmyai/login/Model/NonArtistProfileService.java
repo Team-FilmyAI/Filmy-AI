@@ -15,7 +15,7 @@ public class NonArtistProfileService {
     @Autowired
     private NonArtistProfileRepository nonArtistProfileRepository;
 
-    private static final String PROFILE_PICTURES_DIR = "src/main/resources/static/profile_pictures/non_artist/";
+    private static final String PROFILE_PICTURES_DIR = "src/main/resources/static/images/profile_pictures/non_artist/";
 
     // Save the non-artist profile to the database
     public void saveNonArtistProfile(NonArtistProfile nonArtistProfile) {
@@ -39,7 +39,7 @@ public class NonArtistProfileService {
         Path filePath = directoryPath.resolve(fileName);
         Files.write(filePath, profilePicture.getBytes());
 
-        return "/profile_pictures/non_artist/" + fileName;
+        return "/images/profile_pictures/non_artist/" + fileName;
     }
 
 }

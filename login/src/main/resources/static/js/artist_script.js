@@ -4,6 +4,7 @@ window.addEventListener('load', () => {
     const privateProfile = document.querySelector('.pvt');
     const visibility = document.getElementById('visibility');
 
+
     // Set initial state based on DB value
     if (visibility.value === 'Public') {
         publicProfile.classList.add('active-profile');
@@ -13,21 +14,40 @@ window.addEventListener('load', () => {
         publicProfile.classList.remove('active-profile');
     }
 
-    publicProfile.addEventListener('click', () => {
-        visibility.value = 'Public'; // Update hidden input
-        privateProfile.classList.remove('active-profile');
-        publicProfile.classList.add('active-profile');
-        document.getElementById('profileVisibilityForm').submit();
-    });
 
-    privateProfile.addEventListener('click', () => {
-        visibility.value = 'Private'; // Update hidden input
-        publicProfile.classList.remove('active-profile');
-        privateProfile.classList.add('active-profile');
-        document.getElementById('profileVisibilityForm').submit()
-    });
 });
 
+
+function setVisibility(status) {
+    console.log(`Visibility set to: ${status}`);
+  
+    const publicProfile = document.querySelector('.pub');
+    const privateProfile = document.querySelector('.pvt');
+    const visibility = document.getElementById('visibility');
+
+    if(status == 'Public'){
+        visibility.value = 'Public';
+        publicProfile.classList.add('active-profile');
+        privateProfile.classList.remove('active-profile');
+        document.getElementById('profileVisibilityForm').submit();
+
+    }
+    else{
+        visibility.value = 'Private';
+        publicProfile.classList.remove('active-profile');
+        privateProfile.classList.add('active-profile');
+        document.getElementById('profileVisibilityForm').submit();
+
+    } 
+}
+
+function setActionEdit(experienceId) {
+    console.log(`Exp id : ${experienceId}`);
+    document.getElementById('experienceForm').action='/artist-profile/editExperience/'+experienceId;
+    const action = document.getElementById('experienceForm').action;
+    console.log('Form action set to:', action);
+
+}
 
 
 // Recommendation section (read more)
@@ -69,10 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    document.getElementById('closeBtn').addEventListener('click', function() {
-        document.querySelector('.popup-card').style.display = 'none';
-        document.querySelector('.overlay').style.display = 'none';
-    });
 });
 
 // Edit Button to show the relevant form
