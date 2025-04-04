@@ -43,6 +43,7 @@ public class SignupService {
 			//user.setAccountType(signupRequest.getAccountType());
 			user.setAccountType(MyAppUser.AccountType.Business);
 			user.setBusinessName(signupRequest.getBusinessName());
+			
 		}
 		
 		return userRepository.save(user);

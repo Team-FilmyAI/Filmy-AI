@@ -30,10 +30,10 @@ public class MyAppUser {
 	private AccountType accountType; // "individual" or "business"
 
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime created_at = LocalDateTime.now();
+    private LocalDateTime created_at = LocalDateTime.now().withNano(0);;
 
     @Column(name = "updated_at")
-    private LocalDateTime updated_at = LocalDateTime.now();
+    private LocalDateTime updated_at = LocalDateTime.now().withNano(0);;
 
     @PreUpdate
     public void setUpdatedAt() {
