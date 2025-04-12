@@ -1,0 +1,5 @@
+package com.filmy_ai.musician.musician_profile.model;
+
+public enum ProfileType {
+    PUBLIC,PRIVATE
+}
