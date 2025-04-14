@@ -11,7 +11,7 @@ public class DemoRequestService {
 
 	@Autowired
 	private DemoRequestRepository demoRequestRepository;
-	
+	// for request submission
 	public DemoRequest saveDemoRequest(DemoRequest demoRequest) {
 		return demoRequestRepository.save(demoRequest);
 		
