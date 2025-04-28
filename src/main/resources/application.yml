@@ -1,0 +1,43 @@
+#Server Configuration
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+# PostgreSQL Database Configuration
+spring:
+  servlet.multipart.enabled: true
+  security:
+    user:
+      name: admin
+      password: admin123
+  datasource:
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/filmyai-db
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+# Mail Configuration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: saindanekuldeep16@gmail.com
+    password: dfzq ozkz scym swom
+    protocol: smtp 
+    properties: 
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.filmyai: DEBUG
+    org.springframework.mail: DEBUG

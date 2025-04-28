@@ -1,0 +1,11 @@
+Project Name: FilmyAI
+Version: 1.0.0
+Author: FilmyAI
+Description: A Spring Boot application for managing Artists, Business.
+
+Setup Instructions:
+  1. Clone the repository.
+  2. Create Database in PostgreSQL with Name: filmyai
+  3. Add the your Database Cred to application.yml file
+  3. Create Tables - Queries given in resourse/docs/database.txt
+  4.  
