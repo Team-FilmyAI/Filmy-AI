@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Garet";
+  src: url("path/to/garet-regular.woff2") format("woff2"), url("path/to/garet-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --orange: #ff7f00;
+  --white: #f2f2f2;
+  --black: #191919;
+  --card-grey: #2a2a2a;
+  --section: #212121;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  min-width: 100%;
+  max-width: 100%;
+  background-color: var(--black) !important;
+  /* overflow-x: hidden; */
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+main {
+  min-height: 100vh;
+  min-width: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Garet", sans-serif;
+}
+
+h1 {
+  font-size: 44px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
+
+p {
+  margin: 0px !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+/* default end */
+
+/* main start */
+
+main {
+  flex-grow: 1;
+}
+
+.main {
+  padding: 0px !important;
+  width: 100%;
+  max-width: 100%;
+}
+
+.section {
+  padding: 50px 0px;
+  cursor: default;
+}

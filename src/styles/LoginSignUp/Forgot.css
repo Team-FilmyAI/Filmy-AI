@@ -1,0 +1,178 @@
+/* Base reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.forgot-body {
+  background-color: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
+  background: url("/images/LoginSignUp/bg.png") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+
+.forget-container {
+  display: flex;
+  background: linear-gradient(to bottom right, #151516, #000000);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.forget-left-section {
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.forget-right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.forget-org-name {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #ff7f00;
+}
+
+.forget-org-tag-line {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .forget-container {
+    width: 1000px;
+    height: 600px;
+    border-radius: 15px;
+  }
+
+  .forget-left-section {
+    width: 50% !important;
+    border-radius: 15px 0px 0px 15px;
+  }
+
+  .forget-right-section {
+    width: 50% !important;
+    border-radius: 0px 15px 15px 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .forget-container {
+    flex-direction: column-reverse;
+    height: 100%;
+    width: 100%;
+  }
+
+  .forget-left-section {
+    height: fit-content;
+  }
+
+  .forget-right-section {
+    min-height: 40vh;
+  }
+}
+
+.forget-title {
+  color: #ff7f00;
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.forget-input-container {
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.forget-input-field {
+  width: 100%;
+  background-color: #2a2a2a;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  color: #fff;
+  outline: none;
+}
+
+.forget-input-field:focus {
+  color: #ff7f00;
+  outline: 2px solid #ff7f00;
+}
+
+.forget-back-link {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  color: #ffffff;
+}
+
+.forget-back-link a {
+  color: #ff7f00;
+  text-decoration: none;
+}
+
+.forget-back-link a:hover {
+  color: #ff7f00;
+  text-shadow: 0 0 10px #ff7f00, 0 0 20px #ff7f00, 0 0 30px #ff7f00, 0 0 40px #ff7f00;
+}
+
+.forget-send-btn {
+  border: 2px solid #ff7f00;
+  background-color: #ff7f00;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.forget-send-btn:hover {
+  color: #ffffff;
+  background-color: #e65c00;
+  border-color: #e65c00;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #aaa;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #444;
+  margin: 0 10px;
+}
+
+.forget-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.forget-social-icons i {
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.forget-social-icons i:hover {
+  color: #ff7f00;
+  text-shadow: 0 0 10px #ff7f00, 0 0 20px #ff7f00, 0 0 30px #ff7f00, 0 0 40px #ff7f00;
+}

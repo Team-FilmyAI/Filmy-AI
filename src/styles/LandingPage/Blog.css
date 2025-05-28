@@ -1,0 +1,146 @@
+.blog-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.blog-section-title {
+  color: var(--white) !important;
+  font-size: 5rem;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-section-title .first-word {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--orange);
+  font-size: 7rem;
+  line-height: 1;
+  width: 100%;
+}
+
+.blog-section-title .second-word {
+  line-height: 1;
+  width: 100%;
+  text-align: right;
+}
+
+.blog-subtitle {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.slide-in-left {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+  transition: all 0.9s ease-out;
+}
+
+@media (max-width: 1200px) {
+  .blog-cards {
+    flex-grow: 1;
+    flex-direction: column;
+  }
+
+  .blog-container {
+    flex-direction: column;
+  }
+
+  .blog-section-title .first-word,
+  .blog-section-title .second-word {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-container {
+    flex-direction: column;
+  }
+
+  .blog-section-title {
+    width: 100%;
+  }
+}
+
+.blog-cards {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: end;
+  align-items: center;
+}
+
+.blog-card {
+  height: 300px;
+  width: 200px;
+  position: relative;
+  border-radius: 15px;
+}
+
+.card-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  z-index: -1;
+  transition: filter 0.3s ease-in-out;
+}
+
+.blog-name {
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.blog-card:hover .card-image {
+  filter: blur(1px);
+}
+
+.blog-card:hover .blog-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-title {
+  color: var(--white);
+  margin: 0px;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 5px;
+}
+
+@media (max-width: 1200px) {
+  .blog-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .blog-section-title {
+    z-index: 0;
+  }
+
+  .blog-subtitle {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .slide-in-left {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    transition: all 0.9s ease-out;
+  }
+}

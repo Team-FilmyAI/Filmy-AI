@@ -1,0 +1,77 @@
+.hero {
+  background-color: #000000;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  flex-grow: 1;
+  cursor: default;
+}
+
+.hero-title h2 {
+  color: var(--orange);
+  font-size: 5rem;
+}
+
+.hero-title p {
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.work-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  transform: rotate(-45deg);
+  height: fit-content;
+  position: absolute;
+  right: -125px;
+}
+
+.diamond {
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  border: 1.5px solid #ff7f00;
+  transition: transform 0.3s ease;
+}
+
+.diamond:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 1200px) {
+  .hero-title h2 {
+    font-size: 4rem;
+  }
+
+  .work-group {
+    right: -175px;
+  }
+
+  .diamond {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .diamond:hover {
+    background-color: #ff7f00;
+  }
+}
